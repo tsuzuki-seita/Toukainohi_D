@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Wallmovescript : MonoBehaviour
 {
-    float speed = 3;
+    float speed = 10;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject,10);
+        Destroy(gameObject,15);
     
     }
 

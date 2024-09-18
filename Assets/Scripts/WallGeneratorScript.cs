@@ -6,7 +6,7 @@ public class WallGeneratorScript : MonoBehaviour
 {
     public GameObject wall;
     float timer = 0.0f;
-    int interval = 5;
+    int interval = 12;
     // Start is called before the first frame update
     void Start()
     {
