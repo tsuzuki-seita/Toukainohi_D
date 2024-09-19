@@ -7,6 +7,7 @@ public class WallGeneratorScript : MonoBehaviour
     public GameObject wall;
     float timer = 0.0f;
     int interval = 12;
+    int button = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,18 @@ public class WallGeneratorScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= interval){
+        if(button == 1){
+            if(timer >= interval){
             Instantiate(wall, transform.position, transform.rotation);
             timer = 0;
+            }
         }
+        
+    }
+
+    public void OnClick(){
+        button = 1;
+        Instantiate(wall, transform.position, transform.rotation);
+        timer = 0;
     }
 }
