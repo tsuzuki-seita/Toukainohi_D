@@ -19,6 +19,9 @@ public class VideoCapture : MonoBehaviour
     private int videoScreenWidth = 2560;
     private int bgWidth, bgHeight;
 
+    WebCamDevice[] webCamDevice;
+    int selectCamera = 0;
+
     public RenderTexture MainTexture { get; private set; }
 
     /// <summary>
@@ -30,6 +33,7 @@ public class VideoCapture : MonoBehaviour
     {
         this.bgWidth = bgWidth;
         this.bgHeight = bgHeight;
+        webCamDevice = WebCamTexture.devices;
         if (UseWebCam) CameraPlayStart();
         else VideoPlayStart();
     }
@@ -39,13 +43,13 @@ public class VideoCapture : MonoBehaviour
     /// </summary>
     private void CameraPlayStart()
     {
-        WebCamDevice[] devices = WebCamTexture.devices;
-        if(devices.Length <= WebCamIndex)
-        {
-            WebCamIndex = 0;
-        }
-        
-        webCamTexture = new WebCamTexture(devices[WebCamIndex].name);
+        int cameras = webCamDevice.Length; //カメラの個数
+        if (cameras < 1) return; // カメラが1台しかなかったら実行せず終了
+
+        selectCamera++;
+        if (selectCamera >= cameras) selectCamera = 0;
+
+        webCamTexture = new WebCamTexture(webCamDevice[selectCamera].name); //カメラを変更
 
         var sd = VideoScreen.GetComponent<RectTransform>();
         VideoScreen.texture = webCamTexture;
