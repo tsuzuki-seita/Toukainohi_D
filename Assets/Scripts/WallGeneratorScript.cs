@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class WallGeneratorScript : MonoBehaviour
 {
-    public GameObject wall;
+    // public GameObject wall;
+    public GameObject[] objectsToSpawn;
 
     public Button StartButton;
 
@@ -24,7 +25,8 @@ public class WallGeneratorScript : MonoBehaviour
         timer += Time.deltaTime;
         if(button == 1){
             if(timer >= interval){
-            Instantiate(wall, transform.position, transform.rotation);
+            int randomIndex = Random.Range(0, objectsToSpawn.Length);
+            Instantiate(objectsToSpawn[randomIndex], transform.position, transform.rotation);
             timer = 0;
             }
         }
@@ -33,7 +35,8 @@ public class WallGeneratorScript : MonoBehaviour
 
     public void OnClick(){
         button = 1;
-        Instantiate(wall, transform.position, transform.rotation);
+        int randomIndex = Random.Range(0, objectsToSpawn.Length);
+        Instantiate(objectsToSpawn[randomIndex], transform.position, transform.rotation);
         timer = 0;
         StartButton.gameObject.SetActive(false);
     }
