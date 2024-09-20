@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public  RawImage[] hearts;   // ハートの画像UI
     public Text scoreText;   // スコア表示用テキスト
 
-    static public int score = 0;
+    public static int score = 0;
 
     private float lastScoreTime = -1f;  // スコア加算のタイミングを記録
     private float lastLifeTime = -1f;   // ライフ減少のタイミングを記録
