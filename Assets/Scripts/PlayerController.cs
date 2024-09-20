@@ -1,30 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;  // シーン遷移のため
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public int maxLife = 3;  // 最大ライフ
     private int currentLife;
 
-    public Image[] hearts;   // ハートの画像UI
-    public GameObject gameOverScreen;  // ゲームオーバー画面への参照
+    public  RawImage[] hearts;   // ハートの画像UI
     public Text scoreText;   // スコア表示用テキスト
 
     static public int score = 0;
+
+    private float lastScoreTime = -1f;  // スコア加算のタイミングを記録
+    private float lastLifeTime = -1f;   // ライフ減少のタイミングを記録
+    public float cooldownTime = 1f;     // 1秒間クールダウン
 
     void Start()
     {
         currentLife = maxLife;
         UpdateHearts();
         UpdateScore();
-    }
-
-    void Update()
-    {
-        // プレイヤーの移動処理などをここに追加できます
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,20 +43,31 @@ public class PlayerController : MonoBehaviour
 
     void LoseLife()
     {
-        currentLife--;
-
-        UpdateHearts();
-
-        if (currentLife <= 0)
+        // 1秒以内に再びライフを減らさない
+        if (Time.time - lastLifeTime >= cooldownTime)
         {
-            GameOver();
+            currentLife--;
+            lastLifeTime = Time.time;  // 現在の時間を記録
+
+            UpdateHearts();
+
+            if (currentLife <= 0)
+            {
+                GameOver();
+            }
         }
     }
 
     void AddScore()
     {
-        score++;
-        UpdateScore();
+        // 1秒以内に再びスコアを加算しない
+        if (Time.time - lastScoreTime >= cooldownTime)
+        {
+            score++;
+            lastScoreTime = Time.time;  // 現在の時間を記録
+
+            UpdateScore();
+        }
     }
 
     void UpdateHearts()
@@ -86,9 +93,6 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
-        // ゲームオーバー画面を有効化
-        gameOverScreen.SetActive(true);
-        // ゲームのロジックを停止するなどの処理をここで行う
-        Time.timeScale = 0f;  // ゲームを一時停止
+        SceneManager.LoadScene("Ranking");
     }
 }
