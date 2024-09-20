@@ -122,13 +122,14 @@ GameObject:
   - component: {fileID: 1774509393172200445}
   - component: {fileID: 3283295589187732362}
   - component: {fileID: 5478924546102580791}
+  - component: {fileID: 6191998709549451004}
   m_Layer: 0
   m_Name: Wall04
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1509323177739646991
 Transform:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 1.05, z: 0}
-  m_LocalScale: {x: 15, y: 10, z: 0.1}
+  m_LocalScale: {x: -3, y: -2, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1742581864586914051}
@@ -321,3 +322,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.087206244, y: 0.16625977, z: 1}
   m_Center: {x: 0.20131828, y: 0.41687018, z: 0}
+--- !u!114 &6191998709549451004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036700875112951826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95e53d2dc3924b40a629d51b2f4a5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

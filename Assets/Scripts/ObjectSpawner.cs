@@ -10,7 +10,7 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-        timer = spawnInterval;  // 最初の生成までの時間を設定
+        timer = 0;  // 最初の生成までの時間を設定
     }
 
     void Update()

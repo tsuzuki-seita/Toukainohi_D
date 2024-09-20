@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 6837907687704722881}
   - component: {fileID: 2706992578155696693}
   - component: {fileID: 2378634627761211651}
+  - component: {fileID: 3655787616209790138}
   m_Layer: 0
   m_Name: Wall01
   m_TagString: Wall
@@ -136,7 +137,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 1.05, z: 0}
-  m_LocalScale: {x: 15, y: 10, z: 0.1}
+  m_LocalScale: {x: -3, y: -2, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1540282403498533773}
@@ -255,3 +256,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.11751626, z: 1}
   m_Center: {x: -0, y: -0.44124198, z: 0}
+--- !u!114 &3655787616209790138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307823461914193746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95e53d2dc3924b40a629d51b2f4a5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
