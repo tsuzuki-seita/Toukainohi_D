@@ -22,7 +22,7 @@ public class RankingManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.DeleteAll(); // データをリセットしないようにコメントアウト
-        Currerntpoint = 7; // デバッグ用のスコア、実際のゲームでは変動する
+        Currerntpoint = PlayerController.score; // デバッグ用のスコア、実際のゲームでは変動する
         
         GetRanking(); // 現在のランキングを取得
 
